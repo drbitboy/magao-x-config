@@ -38,7 +38,7 @@ Configures three MagAO-X roles, which can all run simultaneously on the same hos
       * Empty-passphrase SSH key files **\~/.ssh/id_rsa** and **\~/.ssh/id_rsa.pub**
       * Contents of \~/.ssh/id_rsa.pub as one line of **\~/.ssh/authorized_keys**
       * Permissions _apropo_ SSH
-    * N.B. these are not required as localhost:8624 and localhost:9624 could be used directly
+    * N.B. these are not required as @localhost:8624 and @localhost:9624 could be used directly in **is7624.conf**
 
 ### **proclist_i8624.txt**
 * ```MAGAOX_ROLE=i8624 resurrector_indi``` to start
