@@ -1,0 +1,16 @@
+########################################################################
+### proclist_9624.txt:  processes of a "remote" MaxAO-X node
+### Special configuration for testing startup and operational sequencing
+########################################################################
+
+####################################
+### One process is local to this node
+### * INDI server, listening on default port 9624
+### * magAOXmaths INDI driver "timeSeriesSimulator_i9624"
+####################################
+
+###process-ID                 Executable
+
+is9624                        xindiserver
+
+tss_i9624     timeSeriesSimulator

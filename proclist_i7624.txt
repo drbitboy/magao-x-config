@@ -1,0 +1,20 @@
+########################################################################
+### proclist_7624.txt:  processes of the "central" MaxAO-X node
+### Special configuration for testing startup and operational sequencing
+########################################################################
+
+####################################
+### Processes local to this "central" (i.e. AOC-like) node
+### * INDI server, listening on default port 7624
+### * Two sshDigger's to get to INDI servers on ports 8624 and 9624
+### * magAOXmaths INDI driver "maths_x_i7624"
+####################################
+
+###process-ID     Executable
+
+is7624            xindiserver
+
+seq_i8624_indi    sshDigger
+seq_i9624_indi    sshDigger
+
+maths_x_i7624     magAOXMaths
