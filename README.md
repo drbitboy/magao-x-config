@@ -21,6 +21,8 @@ MagAO-X utilities are documented in the [utilities section](https://magao-x.org/
 
 Configures three MagAO-X roles, which can all run simultaneously on the same host
 
+N.B. start roles i98624 and i9624 first, then role i7624.
+
 ### **proclist_i7624.txt**
 * ```MAGAOX_ROLE=i7624 resurrector_indi``` to start
 * **is7624.conf** <= INDI server on port 7624
