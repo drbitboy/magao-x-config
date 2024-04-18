@@ -1,4 +1,0 @@
-#Processes for the MagAO-X ICC
-#process-ID    Executable
-vm_aoc_indi          sshDigger
-vm_aoc_milkzmq       sshDigger
