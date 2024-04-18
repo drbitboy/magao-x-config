@@ -29,12 +29,14 @@ Configures two MagAO-X roles, which run on two separate hosts:
 Start either role first
 
 * **proclist_magaox01.txt**
+  * ```MAGAOX_ROLE=magaox01 resurrector_indi``` to start
   * Processes local to this "central" (i.e. AOC-like) node magaox01
     * isMagAOX-1 INDI server, listening on default port 7624
       * Which will connect to INDI server on node magaox02
     * magAOXmaths INDI driver "maths_x"
 
 * **proclist_magaox02.txt**
+  * ```MAGAOX_ROLE=magaox02 resurrector_indi``` to start
   * Processes local to this "satellite" (i.e. RTC-like) node magaox02
     * INDI server, listening on default port 7624
       * Which be connected to by INDI server on node magaox01
