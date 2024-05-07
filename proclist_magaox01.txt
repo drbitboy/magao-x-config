@@ -14,4 +14,4 @@
 
 isMagAOX01        xindiserver
 
-maths_x           magAOXMaths
+maths_1           magAOXMaths
