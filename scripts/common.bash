@@ -9,4 +9,4 @@ role02=magaox$suffix02
 node02=mx10ts
 
 isPrefix=isMagAOX
-dvrPrevix=dvr
+dvrPrefix=dvr
