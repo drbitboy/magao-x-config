@@ -3,10 +3,10 @@ MagAO-X instrument configuration values
 
 ## Usage
 
-For laboratory operation, switch to the `lab` branch of this repository in the clone on the control computer under `/opt/MagAOX/config`. For on-sky operation, switch to the `master` branch.
+For resurrector testing operation, switch to the `resurrector-bigtest` branch of this repository in the clone on the control computer under `/opt/MagAOX/config`. For on-sky operation, switch to the `master` branch.
 
-N.B. This README.md is in branch resurrector-minimal-testing
-     - See **Special configurations for minimal testing startup** below
+N.B. This README.md is in branch resurrector-bigtest
+     - See **Special configurations for bigtest startup** below
 
 ## Documentation
 
@@ -20,24 +20,27 @@ MagAO-X utilities are documented in the [utilities section](https://magao-x.org/
   * evalINDI options
   * setINDI options
 
-## Special configurations for minimal testing startup
+## Special configurations for bigtest startup
 
-Configures two MagAO-X roles, which run on two separate hosts:
-- Role magaox01 on host @magaox01
-- Role magaox02 on host @magaox02
+Configures two MagAO-X roles, which run on two separate nodes (hosts):
+- Role magaox01 on node @mx11ts
+- Role magaox02 on node @mx10ts
 
 Start either role first
+- All files are duplicated on both nodes
 
 * **proclist_magaox01.txt**
-  * ```MAGAOX_ROLE=magaox01 resurrector_indi``` to start
-  * Processes local to this "central" (i.e. AOC-like) node magaox01
-    * isMagAOX-1 INDI server, listening on default port 7624
-      * Which will connect to INDI server on node magaox02
-    * magAOXmaths INDI driver "maths_x"
+  * ```MAGAOX_ROLE=magaox01 resurrector_indi``` to start on node mx11ts
+  * Processes local to this "central" (i.e. AOC-like) node mx11ts
+    * isMagAOX01 INDI server, listening on default port 7624
+      * Which will connect to INDI server on node mx10ts
+    * magAOXmaths INDI drivers "dvr01_XXX"
+      * where XXX are hexadecimal numbers
 
 * **proclist_magaox02.txt**
-  * ```MAGAOX_ROLE=magaox02 resurrector_indi``` to start
-  * Processes local to this "satellite" (i.e. RTC-like) node magaox02
+  * ```MAGAOX_ROLE=magaox02 resurrector_indi``` to start on node mx10ts
+  * Processes local to this "satellite" (i.e. RTC-like) node mx10ts
     * INDI server, listening on default port 7624
-      * Which be connected to by INDI server on node magaox01
-    * magAOXmaths INDI driver "maths_y"
+      * Which be connected to by INDI server on node mx11ts
+    * magAOXmaths INDI driver "dvr02_XXX"
+      * where XXX are hexadecimal numbers
