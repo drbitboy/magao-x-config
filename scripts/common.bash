@@ -23,8 +23,19 @@ node02=mx10ts
 othernode01=$node02
 othernode02=$node01
 
-### INDI server names:  isMagAOX01; isMagAOX02
-### Driver prefix without suffix:  dvr01; dvr02
 
-isPrefixNoSuffix=isMagAOX
-dvrPrefixNoSuffix=dvr
+### INDI server names
+
+isName01=isMagAOX$suffix01
+isName02=isMagAOX$suffix02
+
+### Driver prefix without suffix
+### - full driver name will be dvr<suffix>_XXX
+
+dvrPrefix01=dvr${suffix01}_
+dvrPrefix02=dvr${suffix02}_
+
+### Other driver prefix without suffix
+
+otherdvrPrefix01=$dvrPrefix02
+otherdvrPrefix02=$dvrPrefix01
