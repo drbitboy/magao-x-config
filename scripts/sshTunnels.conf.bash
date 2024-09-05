@@ -10,22 +10,24 @@ zero="$0"
 medir="$(dirname "$zero")"
 target="$(basename ${zero%.bash})"
 
+source "$medir/common.bash"
 
 cat << EoFsshTunnels > "$medir/../$target"
-### Connection from magaox${mag_suffixA} to magaox${mag_suffixB} (hostname $mag_nodeA)
+### Connection from ${roleA} to ${roleB}
+### - Hostname $hostnameA to hostname $hostnameB
 ### - local port set to -1 so a direct connection is made to the remote
 ###   server instead of to local sshDigger tunnel @localhost:<localPort>
 ### - compress has been removed, as it is not used in this case
-[magaox${mag_suffixA}_B]
-remoteHost = $mag_nodeB
+[${roleA}_${suffixB}]
+remoteHost = $hostnameB
 remotePort = 7624
 localPort  = -1
 
-### Connection from magaox${mag_suffixB} to magaox${mag_suffixA} (hostname $mag_nodeA)
+### Connection from ${roleB} to ${roleA}
+### - Hostname $hostnameB to hostname $hostnameA
 ### - Same as above
-[magaox${mag_suffixB}_01]
-remoteHost = $mag_nodeA
+[${roleB}_${suffixA}]
+remoteHost = $hostnameA
 remotePort = 7624
 localPort  = -1
 EoFsshTunnels
-
