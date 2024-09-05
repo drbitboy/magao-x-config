@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
-one="$1"
-source "$(dirname "${BASH_SOURCE[0]}")"/node_setup.bash $one
-
-dvrID="$2"
+one="$1" ; shift 1
+mydir="$(dirname "${BASH_SOURCE[0]}")"
+source "$mydir"/node_setup.bash $one
 
 [ "$mag_node" ] \
-&& echo "$dvrID" | grep -q '^[0-9a-f][0-9a-f][0-9a-f]$' \
-|| ( echo "Usage  $0 A|B <driver ID as three lowercase hex digits>" && false ) \
+|| ( echo "Usage  $0 A|B <dvr1-hex>[ <dvr2-hex>[ ...]]>" && false ) \
 || unset mag_node
 
+
 if [ "$mag_node" ] ; then
-  cat << EoFdvr
+  dvrpathPrefix="$mydir/../$mag_dvrPrefix"
+  while [ "$1" ] ; do
+    dvrID="$1" ; shift 1
+    cat > "$dvrpathPrefix$dvrID.conf" << EoFdvr
 ### INDI driver $mag_dvrPrefix$dvrID
 ### - created by script ${BASH_SOURCE[0]}
 ### - from PWD=$PWD
@@ -20,8 +22,7 @@ myVal=val
 otherDevName=$mag_otherdvrPrefix$dvrID
 otherValName=val
 EoFdvr
+  done
 else
   false
 fi
-
-
