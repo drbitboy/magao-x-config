@@ -1,41 +1,40 @@
 
 ### /scripts/common.bash
 ### - contains the suffixes for the two roles/INDI servers/drivers
-### - also the node names
+### - also the hostnames
 
-### Suffix for the two roles
+### Suffix for the two nodes
 
-suffix01=01
-suffix02=02
+suffixA=01
+suffixB=02
 
 ### Roles for the two nodes
 
-role01=magaox$suffix01
-role02=magaox$suffix02
+roleA=magaox$suffixA
+roleB=magaox$suffixB
 
-### Nodes (hostnames)
+### Hostnames
 
-node01=mx11ts
-node02=mx10ts
+hostnameA=mx11ts
+hostnameB=mx10ts
 
-### The "other" node
+### The "other" hostname
 
-othernode01=$node02
-othernode02=$node01
+otherhostnameA=$hostnameB
+otherhostnameB=$hostnameA
 
+### INDI server names (xindiserver -n <INDI-server-name>
 
-### INDI server names
-
-isName01=isMagAOX$suffix01
-isName02=isMagAOX$suffix02
+isNameA=isMagAOX$suffixA
+isNameB=isMagAOX$suffixB
 
 ### Driver prefix without suffix
 ### - full driver name will be dvr<suffix>_XXX
 
-dvrPrefix01=dvr${suffix01}_
-dvrPrefix02=dvr${suffix02}_
+dvrPrefixA=dvr${suffixA}_
+dvrPrefixB=dvr${suffixB}_
 
 ### Other driver prefix without suffix
 
-otherdvrPrefix01=$dvrPrefix02
-otherdvrPrefix02=$dvrPrefix01
+otherdvrPrefixA=$dvrPrefixB
+otherdvrPrefixB=$dvrPrefixA
