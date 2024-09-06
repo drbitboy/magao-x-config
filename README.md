@@ -50,6 +50,6 @@ Start either role first
   * Processes local to this satellite (i.e. RTC-like) "B" node on hostname mx10ts
     * INDI server, listening on default port 7624
       * Which will be connected to by INDI server on node mx11ts
-      * **N.B. "B" node (role magaox02) INDI server does *not* connect back to "A" node (role magaox01) INDI server, but rather relies on connection from client INDI server on A to server INDI server on B to be able to connect to drivers on A node.
+      * **N.B. "B" node (role magaox02) INDI server does *not* connect back to "A" node (role magaox01) INDI server, but rather relies on connection from client INDI server on A to server INDI server on B to be able to connect to drivers on A node.**
     * magAOXmaths INDI driver "dvr02_XXX"
       * where XXX are hexadecimal numbers
