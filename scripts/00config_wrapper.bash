@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-let dvrcount=$1 || exit 1
+let dvrcount=$1 \
+|| ( echo 1>&2 "Usage:  $0 <driver count per node>" && false ) \
+|| exit 1
 
 let count=0
 dvrhex3s=""
