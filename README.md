@@ -1,12 +1,20 @@
 # config
 MagAO-X instrument configuration values
 
-## Usage
+## Big-test for resurrector
 
-For resurrector testing operation, switch to the `resurrector-bigtest` branch of this repository in the clone on the control computer under `/opt/MagAOX/config`. For on-sky operation, switch to the `master` branch.
+Start some number of magAOXMaths INDI drivers, plus and INDI server on node "A," plus the same on another node "B," where each magAOXMaths INDI driver talks to its counterpart on the other node.
 
 N.B. This README.md is in branch resurrector-bigtest
      - See **Special configurations for bigtest startup** below
+
+## Usage:  creating the configuration files
+
+```scripts/00config_wrapper.bash <# of drivers per node>```
+
+## Usage:  general
+
+For resurrector testing operation, switch to the `resurrector-bigtest` branch of this repository in the clone on the control computer under `/opt/MagAOX/config`. For on-sky operation, switch to the `master` branch.
 
 ## Documentation
 
