@@ -35,11 +35,11 @@ Configures two MagAO-X roles, which run on two separate nodes (hosts):
 - Role magaox02 on node @mx10ts
 
 Start either role first
-- All files are duplicated on both nodes
+- All files should duplicated on both nodes
 
 * **proclist_magaox01.txt**
   * ```MAGAOX_ROLE=magaox01 resurrector_indi``` to start on node mx11ts
-  * Processes local to this "central" (i.e. AOC-like) node mx11ts
+  * Processes local to this central (i.e. AOC-like) "A" node on hostname mx11ts
     * isMagAOX01 INDI server, listening on default port 7624
       * Which will connect to INDI server on node mx10ts
     * magAOXmaths INDI drivers "dvr01_XXX"
@@ -47,8 +47,9 @@ Start either role first
 
 * **proclist_magaox02.txt**
   * ```MAGAOX_ROLE=magaox02 resurrector_indi``` to start on node mx10ts
-  * Processes local to this "satellite" (i.e. RTC-like) node mx10ts
+  * Processes local to this satellite (i.e. RTC-like) "B" node on hostname mx10ts
     * INDI server, listening on default port 7624
-      * Which be connected to by INDI server on node mx11ts
+      * Which will be connected to by INDI server on node mx11ts
+      * **N.B. "B" node (role magaox02) INDI server does *not* connect back to "A" node (role magaox01) INDI server, but rather relies on connection from client INDI server on A to server INDI server on B to be able to connect to drivers on A node.
     * magAOXmaths INDI driver "dvr02_XXX"
       * where XXX are hexadecimal numbers
