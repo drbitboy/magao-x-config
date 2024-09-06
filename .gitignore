@@ -1,1 +1,10 @@
 .*.swp
+dvr01_???.conf
+dvr02_???.conf
+isMagAOX01.conf
+isMagAOX02.conf
+magaox.conf
+proclist_magaox0?.txt
+proclist_magaox0?.txt.copy
+sshTunnels.conf
+x.x
