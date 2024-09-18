@@ -27,11 +27,13 @@ for hex0 in $hexdigits ; do
   done
 done
 
-$medir/magaox.conf.bash
-$medir/sshTunnels.conf.bash
+"$medir"/magaox.conf.bash
+"$medir"/sshTunnels.conf.bash
 
 for magnode in A B ; do
   "$medir"/dvr.conf.bash $magnode $dvrhex3s
   "$medir"/indiserver.conf.bash $magnode $dvrhex3s
   "$medir"/proclist_.txt.bash $magnode $dvrhex3s
 done
+
+"$medir"/../../bin/resuctrl reset
