@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+me="$0"
+medir="$(dirname "$me")"
+
+[ -d "$medir" ] \
+|| ( echo 1>&2 "Usage:  [directory/]$0 <driver count per node>" && false ) \
+|| exit 2
+
 let dvrcount=$1 \
 || ( echo 1>&2 "Usage:  $0 <driver count per node>" && false ) \
 || exit 1
@@ -20,11 +27,11 @@ for hex0 in $hexdigits ; do
   done
 done
 
-scripts/magaox.conf.bash
-scripts/sshTunnels.conf.bash
+$medir/magaox.conf.bash
+$medir/sshTunnels.conf.bash
 
 for magnode in A B ; do
-  scripts/dvr.conf.bash $magnode $dvrhex3s
-  scripts/indiserver.conf.bash $magnode $dvrhex3s
-  scripts/proclist_.txt.bash $magnode $dvrhex3s
+  "$medir"/dvr.conf.bash $magnode $dvrhex3s
+  "$medir"/indiserver.conf.bash $magnode $dvrhex3s
+  "$medir"/proclist_.txt.bash $magnode $dvrhex3s
 done
