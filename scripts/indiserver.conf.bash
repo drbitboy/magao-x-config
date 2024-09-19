@@ -22,6 +22,8 @@ if [ "$mag_node" ] ; then
 ### Special configuration for big-testing
 ########################################################################
 
+[resurrectee]
+timeout = 10,60
 
 ########################################################################
 ### $indiserverfn:  INDI server of this node
