@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 one="$1" ; shift 1
+[ "$1" == "--remote.drivers" ] && rdarg=yes && shift 1 || unset rdarg
+[ "$rdarg" ] && attunnels=yes || unset attunnels
 
 mydir="$(dirname "${BASH_SOURCE[0]}")"
 source "$mydir/node_setup.bash" $one 2>/dev/null \
@@ -11,9 +13,17 @@ indiserverpath="$mydir/../$indiserverfn"
 
 if [ "$mag_node" ] ; then
 
+  ( [ "$mag_node" == "A" ] || [ "$attunnels" ] ) \
+  && unset remotecmt || remotecmt="#"
+
   nonAcomment="### Commented out for non-A node"
-  [ "$mag_node" == "A" ] && unset cmt || cmt="#"
-  [ "$cmt" ] || unset nonAcomment
+  [ "$attunnels" ] || unset nonAcomment
+
+  [ "$attunnels" ] && servers_drivers=drivers || servers_drivers=servers
+
+  [ "$attunnels" ] && unset before_at || before_at=$mag_otherisName
+
+  [ "$attunnels" ] && zcmt="#" || unset zcmt
 
   cat << EoFindiserver > "$indiserverpath"
 ########################################################################
@@ -34,11 +44,13 @@ timeout = 10,60
 f = /opt/MagAOX/drivers/fifos/indiserver.ctrl
 #p = 7624
 v = v,v,v
-z = true
+${zcmt}z = true
 
 ####################################
-### Connect to remote drivers ${mag_otherdvrPrefix}XXX, partner to local
-### drivers below, via remote INDI server
+### remote.servers=...
+###
+###   Connect to remote drivers ${mag_otherdvrPrefix}XXX,
+###   partner to local drivers below, via remote INDI server
 ###
 ### - Refers to [${mag_role}_$mag_othersuffix] stanza in sshTunnels.conf
 ###   - direct TCP/IP socket connection ...
@@ -49,10 +61,19 @@ z = true
 ###       local.drivers=${mag_otherdvrPrefix}XXX
 ###     entries will be found in other INDI server's configuration file
 ###     $mag_otherisName.conf
+###
+### remote.drivers=@tunnel
+###
+###   Connect to one remote INDI server with no specific driver name;
+###   driver names local to that INDI server will be snooped via request
+###     <getProperties device="*" ... />
+###
+### - Refers to [${mag_role}_$mag_othersuffix] stanza in sshTunnels.conf
+###
 ####################################
 ${nonAcomment}
-${cmt}[remote]
-${cmt}servers=$mag_otherisName@${mag_role}_$mag_othersuffix
+${remotecmt}[remote]
+${remotecmt}${servers_drivers}=$before_at@${mag_role}_$mag_othersuffix
 
 ####################################
 ### Only local INDI drivers on 7624 INDI server is magAOXMaths

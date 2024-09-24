@@ -32,7 +32,7 @@ done
 
 for magnode in A B ; do
   "$medir"/dvr.conf.bash $magnode $dvrhex3s
-  "$medir"/indiserver.conf.bash $magnode $dvrhex3s
+  "$medir"/indiserver.conf.bash $magnode $REMOTE_DRIVERS $dvrhex3s
   "$medir"/proclist_.txt.bash $magnode $dvrhex3s
 done
 
