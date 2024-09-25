@@ -13,8 +13,7 @@ indiserverpath="$mydir/../$indiserverfn"
 
 if [ "$mag_node" ] ; then
 
-  ( [ "$mag_node" == "A" ] || [ "$attunnels" ] ) \
-  && unset remotecmt || remotecmt="#"
+  [ "$mag_node" == "A" ] && unset remotecmt || remotecmt="#"
 
   nonAcomment="### Commented out for non-A node"
   [ "$attunnels" ] || unset nonAcomment
