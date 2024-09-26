@@ -8,9 +8,15 @@ Start some number of magAOXMaths INDI drivers, plus and INDI server on node "A,"
 N.B. This README.md is in branch resurrector-bigtest
      - See **Special configurations for bigtest startup** below
 
-## Usage:  creating the configuration files
+## Usage:  creating the configuration files, cleaning out /opt/MagAOX/logs/
 
-```scripts/00config_wrapper.bash <# of drivers per node>```
+### Use one Remote Driver socket for three drivers
+
+```make logsclean all DRIVER_COUNT=3 REMOTE_DRIVERS=--remote.drivers```
+
+### Use one Remote Driver socket for each of three drivers
+
+```make logsclean all DRIVER_COUNT=3```
 
 ## Usage:  general
 
