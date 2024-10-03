@@ -10,9 +10,9 @@ N.B. This README.md is in branch resurrector-bigtest
 
 ## Usage:  creating the configuration files, cleaning out /opt/MagAOX/logs/
 
-### Use one Remote Driver socket for three drivers
+### Use one Remote Driver socket for five-hundred driver pairs
 
-```make logsclean all DRIVER_COUNT=3 REMOTE_DRIVERS=--remote.drivers```
+```make logsclean all DRIVER_COUNT=500 REMOTE_DRIVERS=--remote.drivers```
 
 ### Use one Remote Driver socket for each of three drivers
 
