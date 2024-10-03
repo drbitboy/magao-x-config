@@ -21,6 +21,8 @@ if [ "$mag_node" ] ; then
 myVal=val
 otherDevName=$mag_otherdvrPrefix$dvrID
 otherValName=val
+
+loopPause=3000000000
 EoFdvr
   done
 else
