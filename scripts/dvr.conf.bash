@@ -9,16 +9,19 @@ source "$mydir"/node_setup.bash $one
 || unset mag_node
 
 
+
 if [ "$mag_node" ] ; then
   dvrpathPrefix="$mydir/../$mag_dvrPrefix"
   while [ "$1" ] ; do
     dvrID="$1" ; shift 1
+    startVal=$(python -c "print(dict(A=1000,B=2000)['$one']+(0x$dvrID*1.001))")
     cat > "$dvrpathPrefix$dvrID.conf" << EoFdvr
 ### INDI driver $mag_dvrPrefix$dvrID
 ### - created by script ${BASH_SOURCE[0]}
 ### - from PWD=$PWD
 
 myVal=val
+startVal=$startVal
 otherDevName=$mag_otherdvrPrefix$dvrID
 otherValName=val
 
