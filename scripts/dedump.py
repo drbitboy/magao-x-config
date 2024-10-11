@@ -30,12 +30,8 @@ def go(isName):
     if line.endswith('\x1b[0m'): line = line[:-4]
     logtime,logdata = line[:39], line[39:]
 
-    ### Initial state:  look for dump notification
-    if 'lookfordump' == state:
-      if 'FIFO: dump' == logdata: state = 'firstlineofdump'
-
     ### Second state:  get timestamp and data from first line of dump
-    elif 'firstlineofdump' == state:
+    if 'firstlineofdump' == state:
       dumptime,jstring = logtime,logdata
       state = 'subsequentlineofdump'
 
@@ -51,6 +47,10 @@ def go(isName):
         if type(j) is list: j.append(dict(dumptime=dumptime))
         elif type(j) is dict: j.update(dict(dumptime=dumptime))
         pprint.pprint(j)
+
+    ### Initial state:  look for dump notification
+    if 'lookfordump' == state:
+      if 'FIFO: dump' == logdata: state = 'firstlineofdump'
 
 ########################################################################
 if "__main__" == __name__ and sys.argv[1:]:
