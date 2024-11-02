@@ -21,6 +21,7 @@ def go(isName):
   ### Strem logger data to a pipe; initialize state
   p = subprocess.Popen(f'logdump {isName}'.split(),stdout=subprocess.PIPE)
   state = 'lookfordump'
+  dumptime = None
 
   ### Loop over input lines from logdump subprocess output
   for bline in p.stdout:
@@ -43,10 +44,19 @@ def go(isName):
         ### If timestamp changed, reset state to look for next dump ...
         state = 'lookfordump'
         ### ... and output parsed JSON data
-        j = json.loads(jstring)
-        if type(j) is list: j.append(dict(dumptime=dumptime))
-        elif type(j) is dict: j.update(dict(dumptime=dumptime))
-        pprint.pprint(j)
+        try:
+          j = json.loads(jstring)
+          if type(j) is list: j.append(dict(dumptime=dumptime))
+          elif type(j) is dict: j.update(dict(dumptime=dumptime))
+          pprint.pprint(j)
+        except:
+          if 'DEBUG' in os.environ:
+            import traceback as tb
+            tb.print_exc()
+            i = 0
+            while jstring[i:i+100]:
+              print((i,jstring[i:i+100],))
+              i += 100
 
     ### Initial state:  look for dump notification
     if 'lookfordump' == state:
