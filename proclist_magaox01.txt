@@ -1,17 +1,15 @@
 ########################################################################
-### proclist_magaox01.txt:  processes of the "central" MaxAO-X node
+### proclist_magaox01.txt:  processes of the "16-maths" MaxAO-X node
 ### Special configuration for testing startup and operational sequencing
 ########################################################################
 
 ####################################
 ### Processes local to this "central" (i.e. AOC-like) node magaox01
 ### * INDI server, listening on default port 7624
-###   * Which will connect to INDI server on node magaox02
-### * magAOXmaths INDI driver "maths_x"
+### * magAOXMaths INDI drivers "maths_X" where X is a single hex digit
 ####################################
 
 ###process-ID     Executable
 
 isMagAOX01        xindiserver
 
-maths_1           magAOXMaths

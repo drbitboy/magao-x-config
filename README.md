@@ -5,9 +5,9 @@ MagAO-X instrument configuration values
 
 For laboratory operation, switch to the `lab` branch of this repository in the clone on the control computer under `/opt/MagAOX/config`. For on-sky operation, switch to the `master` branch.
 
-N.B. This README.md is in branch resurrector-indi-compression
+N.B. This README.md is in branch resurrector-16-maths-compression
      - See **Special configurations for minimal testing startup** below
-     - This is a follow-on to resurrector-minimal-testing
+     - This has 16 magAOXMaths INDI drivers
 
 ## Documentation
 
@@ -23,9 +23,8 @@ MagAO-X utilities are documented in the [utilities section](https://magao-x.org/
 
 ## Special configurations for minimal testing startup
 
-Configures two MagAO-X roles, which run on two separate hosts:
+Configures one MagAO-X role, which runs on one host:
 - Role magaox01 on host @magaox01
-- Role magaox02 on host @magaox02
 
 Start either role first
 
@@ -33,12 +32,11 @@ Start either role first
   * ```MAGAOX_ROLE=magaox01 resurrector_indi``` to start
   * Processes local to this "central" (i.e. AOC-like) node magaox01
     * isMagAOX-1 INDI server, listening on default port 7624
-      * Which will connect to INDI server on node magaox02
-    * magAOXmaths INDI driver "maths_1"
-
-* **proclist_magaox02.txt**
-  * ```MAGAOX_ROLE=magaox02 resurrector_indi``` to start
-  * Processes local to this "satellite" (i.e. RTC-like) node magaox02
-    * INDI server, listening on default port 7624
-      * Which be connected to by INDI server on node magaox01
-    * magAOXmaths INDI driver "maths_2"
+    * Sixteen magAOXMaths INDI drivers "maths_X" where X is a single hexadecimal digit
+      * maths_0 - connects to maths_f
+      * maths_1 - connects to maths_0
+      * maths_2 - connects to maths_1
+      * maths_3 - connects to maths_2
+      * ...
+      * maths_e - connects to maths_f
+      * maths_f - connects to maths_e
