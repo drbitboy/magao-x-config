@@ -13,3 +13,19 @@
 
 isMagAOX01        xindiserver
 
+maths_0           magAOXMaths
+maths_1           magAOXMaths
+maths_2           magAOXMaths
+maths_3           magAOXMaths
+maths_4           magAOXMaths
+maths_5           magAOXMaths
+maths_6           magAOXMaths
+maths_7           magAOXMaths
+maths_8           magAOXMaths
+maths_9           magAOXMaths
+maths_a           magAOXMaths
+maths_b           magAOXMaths
+maths_c           magAOXMaths
+maths_d           magAOXMaths
+maths_e           magAOXMaths
+maths_f           magAOXMaths
