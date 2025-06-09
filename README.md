@@ -5,8 +5,9 @@ MagAO-X instrument configuration values
 
 For laboratory operation, switch to the `lab` branch of this repository in the clone on the control computer under `/opt/MagAOX/config`. For on-sky operation, switch to the `master` branch.
 
-N.B. This README.md is in branch resurrector-minimal-testing
+N.B. This README.md is in branch resurrector-indi-compression
      - See **Special configurations for minimal testing startup** below
+     - This is a follow-on to resurrector-minimal-testing
 
 ## Documentation
 
@@ -33,11 +34,11 @@ Start either role first
   * Processes local to this "central" (i.e. AOC-like) node magaox01
     * isMagAOX-1 INDI server, listening on default port 7624
       * Which will connect to INDI server on node magaox02
-    * magAOXmaths INDI driver "maths_x"
+    * magAOXmaths INDI driver "maths_1"
 
 * **proclist_magaox02.txt**
   * ```MAGAOX_ROLE=magaox02 resurrector_indi``` to start
   * Processes local to this "satellite" (i.e. RTC-like) node magaox02
     * INDI server, listening on default port 7624
       * Which be connected to by INDI server on node magaox01
-    * magAOXmaths INDI driver "maths_y"
+    * magAOXmaths INDI driver "maths_2"
