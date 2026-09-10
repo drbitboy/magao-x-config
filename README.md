@@ -26,6 +26,23 @@ otherDevName references to each other is the `safer` application's
 job (the INDI store-and-forward bridge project), not xindiserver's
 own remote-driver/SSH-tunnel chaining.
 
+`magaox.conf` is the MagAO-X global config file (looked for in the
+config directory per `MAGAOX_globalConfig`). Content pulled directly
+-- not guessed -- from the actual `magao-x/config` repo's
+`resurrector` branch (commit `52f40a2`, "modified AOC config for
+resurrector," Jared Males):
+
+    indiserver_ctrl_fifo = /opt/MagAOX/drivers/fifos/indiserver.ctrl
+
+Worth noting: this file is EMPTY on `magao-x/config`'s `onsky` and
+`master` branches -- this line only exists on the `resurrector`
+branch, added specifically for that feature. Cloning
+`magao-x/config` directly (a public repo) worked this session, unlike
+the two branches below, which still don't surface via search.
+
+Each `magaoxMaths` `.conf` file also now has `myVal=val` added
+alongside `otherDevName`/`otherValName`.
+
 ## What I could not confirm
 
 I was not able to fetch or search either of the two branches
