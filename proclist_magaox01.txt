@@ -1,0 +1,10 @@
+# proclist_magaox01.txt
+#
+# ASSUMED FORMAT -- see README.md's "What I could not confirm" section.
+# Assumed two-column format: <appName> <configName>
+# (configName matches the .conf file's basename, without extension,
+# which is also the INDI device name for that app instance)
+
+xindiserver xis01
+magaoxMaths a01
+magaoxMaths b01

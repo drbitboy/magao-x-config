@@ -1,0 +1,5 @@
+# proclist_magaox02.txt -- see proclist_magaox01.txt for the format caveat.
+
+xindiserver xis02
+magaoxMaths c02
+magaoxMaths d02
