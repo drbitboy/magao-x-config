@@ -5,6 +5,6 @@
 # (configName matches the .conf file's basename, without extension,
 # which is also the INDI device name for that app instance)
 
-xindiserver xis01
-magaoxMaths a01
-magaoxMaths b01
+xis01 xindiserver
+a01 magaoxMaths
+b01 magaoxMaths
