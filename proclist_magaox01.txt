@@ -7,7 +7,7 @@
 
 ###process-ID     Executable
 
-xis01             xindiserver
+is01              xindiserver
 
-a01               magaoxMaths
-b01               magaoxMaths
+a01               magAOXMaths
+b01               magAOXMaths
