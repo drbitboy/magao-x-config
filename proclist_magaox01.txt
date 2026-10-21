@@ -9,5 +9,5 @@
 
 is01              xindiserver
 
-a01               magAOXMaths
-b01               magAOXMaths
+a01               minMaths
+b01               minMaths

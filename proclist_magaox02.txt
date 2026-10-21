@@ -4,5 +4,5 @@
 
 is02              xindiserver
 
-c02               magAOXMaths
-d02               magAOXMaths
+c02               minMaths
+d02               minMaths
